@@ -9,7 +9,6 @@ let cors = require("cors");
 const port = process.env.PORT || 5000;
 const fileUpload = require("express-fileupload");
 
-// const MongoClient = require('mongodb').MongoClient;
 const uri =
   "***REMOVED***";
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
