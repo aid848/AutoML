@@ -21,9 +21,10 @@ def is_valid_csv(file_in_str):
 def openConnection1():
     print("Getting connection 1")
 
+
     host = '***REMOVED***'
-    username = '***REMOVED***'
-    password = '***REMOVED***'
+    username = os.environ.get('SSH_USER')
+    password = os.environ.get('SSH_PASSWORD')
     ssh1 = paramiko.SSHClient()
     ssh1.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh1.connect(host, username=username, password=password)
@@ -34,8 +35,8 @@ def openConnection2(ssh1):
     print("Getting connection 2")
 
     host = '***REMOVED***'
-    username = '***REMOVED***'
-    password = '***REMOVED***'
+    username = os.environ.get('SSH_USER')
+    password = os.environ.get('SSH_PASSWORD')
     vmtransport = ssh1.get_transport()
     dest_addr = ('borg', 22)
     local_addr = (socket.gethostbyname(socket.gethostname()), 22)
@@ -66,7 +67,7 @@ def uploadFile(ssh2, id, fileName, file):
             return JsonResponse({'err': 'Invalid CSV Uploaded'})
 
         try:
-            put_file(ssh2, '***REMOVED***', '***REMOVED***', '***REMOVED***', CSV_FILES + "/" + id, fileName, hello.csv)
+            put_file(ssh2, '***REMOVED***', os.environ.get('SSH_USER'), os.environ.get('SSH_PASSWORD'), CSV_FILES + "/" + id, fileName, hello.csv)
 
         except Exception as e:
             print({'err': 'You file could not be saved on our servers'})
@@ -142,10 +143,10 @@ def copy_error_file_back_to_local(ssh2, localfilepath, id, fileName):
         print(e)
 
 def get_pred_files_names(id):
-    get_pred_files('***REMOVED***', '***REMOVED***', '***REMOVED***', SESSIONS + "/" + id + "/predictions")
+    get_pred_files('***REMOVED***', os.environ.get('SSH_USER'), os.environ.get('SSH_PASSWORD'), SESSIONS + "/" + id + "/predictions")
 
 def get_prediction_file(id, name):
-    get_pred_file_text('***REMOVED***', '***REMOVED***', '***REMOVED***', SESSIONS + "/" + id + "/predictions/" + name)
+    get_pred_file_text('***REMOVED***', os.environ.get('SSH_USER'), os.environ.get('SSH_PASSWORD'), SESSIONS + "/" + id + "/predictions/" + name)
 
 def get_pred_file_text(host, username, password, dirname):
     ssh1 = paramiko.SSHClient()
