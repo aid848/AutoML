@@ -9,6 +9,7 @@ let cors = require("cors");
 const port = process.env.PORT || 5000;
 const fileUpload = require("express-fileupload");
 
+// TODO put this in env
 const uri =
   "***REMOVED***";
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
