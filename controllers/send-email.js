@@ -1,8 +1,5 @@
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-// sgMail.setApiKey(
-//   "***REMOVED***E"
-// );
 
 const templates = {
   shared: "d-00e2b1e109ae4ba2ba991abe6a08c978",
