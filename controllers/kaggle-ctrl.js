@@ -367,7 +367,7 @@ function uploadJobHelper(fileData, req, res) {
               job._id,
               job.durationLimit,
               job.targetColumnName,
-              "***REMOVED***",
+              process.env.EMAIL_ENSEMBLE,
               job.name,
               HOSTNAME +
                 `job/${job._id}/status/${jobCtrl.JobStatus.TRAINING_COMPLETED}?key=` +
@@ -446,7 +446,7 @@ function uploadTestFile(tmpFileData, req, res) {
             job._id,
             job.durationLimit,
             job.targetColumnName,
-            "***REMOVED***",
+            process.env.EMAIL_ENSEMBLE,
             job.name,
             HOSTNAME +
               `job/${job._id}/status/${jobCtrl.JobStatus.PREDICTING_COMPLETED}?key=` +

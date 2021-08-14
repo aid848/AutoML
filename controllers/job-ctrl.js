@@ -120,7 +120,7 @@ uploadJob = async (req, res) => {
           job._id,
           job.durationLimit,
           job.targetColumnName,
-          "***REMOVED***",
+          process.env.EMAIL_ENSEMBLE,
           job.name,
           HOSTNAME +
             `job/${job._id}/status/${JobStatus.TRAINING_COMPLETED}?key=` +
@@ -213,7 +213,7 @@ uploadTestFile = async (req, res) => {
             job._id,
             job.durationLimit,
             job.targetColumnName,
-            "***REMOVED***",
+            process.env.EMAIL_ENSEMBLE,
             job.name,
             HOSTNAME +
               `job/${job._id}/status/${JobStatus.PREDICTING_COMPLETED}?key=` +

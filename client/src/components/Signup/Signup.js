@@ -25,7 +25,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://github.com/***REMOVED***/cpsc455-project">
+      <Link color="inherit" href="https://github.com/povel62/cpsc455-project">
         Byte Mechanics
       </Link>{" "}
       {new Date().getFullYear()}
